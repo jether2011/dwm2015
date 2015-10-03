@@ -110,7 +110,7 @@ public class PessoaResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createPessoa(Pessoa p) {        
         getDao().insert(p);
-        String msg = "{\"msg\":\"Atualização realizada com sucesso!\"}";
+        String msg = "{\"msg\":\"Inserção realizada com sucesso!\"}";
         return Response.ok(msg).build();
     }
 

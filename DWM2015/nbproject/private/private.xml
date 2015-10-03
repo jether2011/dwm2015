@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/hibernate.cfg.xml</file>
-            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/model/Operacao.java</file>
-            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/hibernateutil/HibernateUtil.java</file>
-            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/model/Pessoa.java</file>
+            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/ws/PessoaResource.java</file>
             <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/ws/CalcResource.java</file>
-            <file>file:/D:/i3focus_DropboxSVN/Dropbox/UNISAL-AULAS-DIVERSOS/PROJETOS/DWM2015/src/java/br/unisal/dao/PessoaDao.java</file>
         </group>
     </open-files>
 </project-private>
