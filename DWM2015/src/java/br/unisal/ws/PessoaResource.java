@@ -47,9 +47,16 @@ public class PessoaResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getPessoas() {
-        GenericEntity<List<Pessoa>> sensores = new GenericEntity<List<Pessoa>>(getDao().getAll()){};       
-        return Response.ok(sensores).build();
+    public Response getPessoas() {        
+        GenericEntity<List<Pessoa>> pessoas = 
+                new GenericEntity<List<Pessoa>>(getDao()
+                        .getAll()){};       
+        return Response
+                .ok(pessoas)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD")
+                .build();
     }
     
     /**
@@ -60,11 +67,21 @@ public class PessoaResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Pessoa getPessoa(@PathParam("id") Integer id) {
+    public Response getPessoa(@PathParam("id") Integer id) {
+        Pessoa p = new Pessoa();
+        p.setIdPessoa(id);
+        return Response
+                .ok(getDao().getById(p))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD")
+                .build();
+    }
+    /*public Pessoa getPessoa(@PathParam("id") Integer id) {
         Pessoa p = new Pessoa();
         p.setIdPessoa(id);
         return getDao().getById(p);
-    }
+    }*/
     
     /**
      * DELETE method for deleting an instance of PessoaResource     * 
@@ -79,7 +96,12 @@ public class PessoaResource {
         p.setIdPessoa(id);        
         getDao().remove(p);
         String msg = "{\"msg\":\"Exclusão realizada com sucesso!\"}";
-        return Response.ok(msg).build();
+        return Response
+                .ok(msg)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD")
+                .build();
     }
 
     /**
@@ -92,11 +114,17 @@ public class PessoaResource {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updatePessoa(Pessoa p, @PathParam("id")Integer id) {
+    public Response updatePessoa(Pessoa p, 
+            @PathParam("id")Integer id) {
         p.setIdPessoa(id);
         getDao().update(p);
         String msg = "{\"msg\":\"Atualização realizada com sucesso!\"}";
-        return Response.ok(msg).build();
+        return Response
+                .ok(msg)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD")
+                .build();
     }
     
     /**
@@ -111,7 +139,12 @@ public class PessoaResource {
     public Response createPessoa(Pessoa p) {        
         getDao().insert(p);
         String msg = "{\"msg\":\"Inserção realizada com sucesso!\"}";
-        return Response.ok(msg).build();
+        return Response
+                .ok(msg)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD")
+                .build();
     }
 
     public PessoaDao getDao() {
